@@ -6,8 +6,8 @@ import '../../styles/Nav.css';
 
 const navLinks = [
   {
-    label: 'Home',
-    route: '/'
+    label: 'About',
+    route: '/about'
   },
   {
     label: 'Experience',
