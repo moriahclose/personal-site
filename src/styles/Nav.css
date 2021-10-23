@@ -37,6 +37,10 @@
     position: relative;
   }
 
+  .links-container.closed {
+    left: 0;
+  }
+
   #overlay {
     display: none;
   }
