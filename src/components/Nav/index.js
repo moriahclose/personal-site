@@ -38,6 +38,7 @@ export default function Nav() {
   }
 
   return <>
+    { mobileNavIsOpen && <div id="overlay" /> }
     <nav id="nav">
       {renderNavLinks()}
     </nav>

@@ -1,6 +1,18 @@
 nav {
   padding: 1.5rem;
   background-color: white;
+  z-index: 10;
+}
+
+#overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+  background-color: #AEAEAE;
+  opacity: 50%;
 }
 
 #mobile-nav {
