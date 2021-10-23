@@ -1,11 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import { useLocation } from "react-router";
+import MenuIcon from "./MenuIcon";
 import NavLink from "./NavLink";
+import '../../styles/Nav.css';
 
 const navLinks = [
   {
-    label: 'About',
-    route: '/about'
+    label: 'Home',
+    route: '/'
   },
   {
     label: 'Experience',
@@ -23,10 +25,25 @@ const navLinks = [
 
 export default function Nav() {
   const { pathname } = useLocation();
+  const [ mobileNavIsOpen, setMobileNavIsOpen ] = useState(false);
 
-  return <nav className="nav">
-    { navLinks.map(navLink =>
+  function toggleMobileNavIsOpen() {
+    setMobileNavIsOpen(s => !s);
+  }
+
+  function renderNavLinks() {
+    return navLinks.map(navLink =>
       <NavLink key={navLink.label} label={navLink.label} route={navLink.route} isCurrentRoute={pathname === navLink.route} />
-    ) }
-  </nav>
+    );
+  }
+
+  return <>
+    <nav id="nav">
+      {renderNavLinks()}
+    </nav>
+    <nav id='mobile-nav' class={!mobileNavIsOpen && 'closed'}>
+      <MenuIcon mobileNavIsOpen={mobileNavIsOpen} toggleMobileNavIsOpen={toggleMobileNavIsOpen} />
+      { mobileNavIsOpen && renderNavLinks() }
+    </nav>
+  </>
 }

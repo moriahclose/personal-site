@@ -1,29 +1,29 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import Layout from '../components/Layout';
 
-import About from './About';
+import Layout from '../components/Layout';
+import Home from './Home';
 import Experience from './Experience';
 import Projects from './Projects';
 import Contact from './Contact';
 
 export default function Routes() {
   return <Router>
-    <Layout>
-      <Switch>
-        <Route path="/about">
-          <About />
+    <Switch>
+      <Layout>
+        <Route>
+          <Home strict exact path="/" />
         </Route>
-        <Route path="/experience">
+        <Route strict exact path="/experience">
           <Experience />
         </Route>
-        <Route path="/projects">
+        <Route strict exact path="/projects">
           <Projects />
         </Route>
-        <Route path="/contact">
+        <Route strict exact path="/contact">
           <Contact />
         </Route>
-      </Switch>
-    </Layout>
+      </Layout>
+    </Switch>
   </Router>
 }
