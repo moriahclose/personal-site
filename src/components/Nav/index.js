@@ -31,20 +31,15 @@ export default function Nav() {
     setMobileNavIsOpen(s => !s);
   }
 
-  function renderNavLinks() {
-    return navLinks.map(navLink =>
-      <NavLink key={navLink.label} label={navLink.label} route={navLink.route} isCurrentRoute={pathname === navLink.route} />
-    );
-  }
-
   return <>
     { mobileNavIsOpen && <div id="overlay" /> }
-    <nav id="nav">
-      {renderNavLinks()}
-    </nav>
-    <nav id='mobile-nav' class={!mobileNavIsOpen && 'closed'}>
-      <MenuIcon mobileNavIsOpen={mobileNavIsOpen} toggleMobileNavIsOpen={toggleMobileNavIsOpen} />
-      { mobileNavIsOpen && renderNavLinks() }
+    <nav>
+      <MenuIcon classes='mobile-nav' mobileNavIsOpen={mobileNavIsOpen} toggleMobileNavIsOpen={toggleMobileNavIsOpen} />
+      <div className={`links-container ${!mobileNavIsOpen && 'closed'}`} >
+        { navLinks.map(navLink =>
+          <NavLink key={navLink.label} label={navLink.label} route={navLink.route} isCurrentRoute={pathname === navLink.route} />
+        ) }
+      </div>
     </nav>
   </>
 }

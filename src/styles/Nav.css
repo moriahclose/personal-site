@@ -1,7 +1,19 @@
-nav {
-  padding: 1.5rem;
+.links-container {
+  padding: 3rem;
+  padding-left: 1.5rem;
   background-color: white;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 300ms;
   z-index: 10;
+}
+
+.links-container.closed {
+  left: -100vw;
 }
 
 #overlay {
@@ -15,34 +27,17 @@ nav {
   opacity: 50%;
 }
 
-#mobile-nav {
-  width: 38%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  transition-property: width;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 300ms;
-}
-
-#nav {
-  display: none;
-}
-
-#mobile-nav.closed {
-  width: 0%;
-  position: relative;
-}
-
 @media only screen and (min-width: 768px) {
-  #nav {
-    display: block;
-    width: 100%;
-    padding-left: 3rem;
+  .mobile-nav {
+    display: none;
   }
 
-  #mobile-nav {
+  .links-container {
+    padding-top: 1.5rem;
+    position: relative;
+  }
+
+  #overlay {
     display: none;
   }
 }

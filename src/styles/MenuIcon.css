@@ -1,4 +1,6 @@
 #menu-icon {
+  margin-left: 1.5rem;
+  margin-top: 1.5rem;
   background-color: transparent;
   border: none;
   width: 40px;
@@ -13,6 +15,7 @@
   -o-transition: .5s ease-in-out;
   transition: .5s ease-in-out;
   cursor: pointer;
+  z-index: 20;
 }
 
 #mobile-nav.closed #menu-icon {
